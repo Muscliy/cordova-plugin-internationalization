@@ -7,11 +7,11 @@ This plugin also lets you localize your app name on both iOS and Android.
 
 ## How to Use
 
-    
+
 Install the plugin by fetching the dependencies
 
-    $ cordova plugin add cordova-plugin-localization-strings
-    
+    $ cordova plugin add cordova-plugin-internationalization
+
 
 Modify your project root to have the following structure:
 
@@ -25,7 +25,7 @@ Cordova Project Root
                 |__  en.json
                 |__  es.json
                 |__  ja.json
-                
+
 ```
 
 A JSON file may look like this  (Note: Breaking change from 1.0.0 onwards - new JSON format).
@@ -47,7 +47,7 @@ A JSON file may look like this  (Note: Breaking change from 1.0.0 onwards - new 
 
 
 ```
-By default, the language for the Localizable.strings, InfoPlist.strings or strings.xml is taken from the filename.  
+By default, the language for the Localizable.strings, InfoPlist.strings or strings.xml is taken from the filename.
 
 For example, if the filename is es.json,  the language is hence "es", and the plugin will create "/Resources/es.lproj/Localizable.strings" or "/values-es/strings.xml".
 
@@ -55,10 +55,10 @@ Install iOS or Android platform
 
     cordova platform add ios
     cordova platform add android
-    
+
 Run the code
 
-    cordova prepare ios 
+    cordova prepare ios
 
 #### Platform Specific Localizations
 
@@ -66,14 +66,14 @@ There are some platform specific localizations which differ for Android and iOS,
 - zh-rCN
 - zh-rHK
 - zh-rTW
-                                                   
+
 and for iOS:
 - zh-Hans
 - zh-Hans-CN
 - zh-Hant
 - zh-Hant-TW
 
-In this case, you can use the locale in the json file to specify the platform localizations as in the following examples.  
+In this case, you can use the locale in the json file to specify the platform localizations as in the following examples.
 
 N.B.  The "locale" key is optional (if platform localization is not required).
 
@@ -166,7 +166,7 @@ Example usage:
 
 ```
 
-### Push notifications messages 
+### Push notifications messages
 
 Typically, there are 2 main ways push notifications can be localised:
 * your app saves your user's selected language on the server, and pushes a localised string in the push notification to your user.
@@ -209,8 +209,8 @@ And on Android, the respective locale's strings.xml:
 
 ## Details (iOS)
 
-The plugin reads the assumed directory structure.  The plugin reads from all the fields in config_ios and writes into the InfoPlist.strings, which will be placed in the respective locale.lproj directory.   The rest of the strings in "app" will be placed in the Localizable.strings file and placed in the locale directory. 
+The plugin reads the assumed directory structure.  The plugin reads from all the fields in config_ios and writes into the InfoPlist.strings, which will be placed in the respective locale.lproj directory.   The rest of the strings in "app" will be placed in the Localizable.strings file and placed in the locale directory.
 
 ## Details (Android)
 
-The plugin reads the assumed directory structure, the plugin will combine all properties in "config_android" and "app", and inserted into the strings.xml of the locale's  /res/val-locale/strings.xml 
+The plugin reads the assumed directory structure, the plugin will combine all properties in "config_android" and "app", and inserted into the strings.xml of the locale's  /res/val-locale/strings.xml
